@@ -87,24 +87,21 @@ The following scripts may require changes:
 
 ## 🚧 Sample Parsed Output
 
-------------------------------------------------
-Metric                  Org        New
-------------------------------------------------
-Pkts on Queues 0-71     15738551   16324101
-Pkts on Queues 72-143   48295      5289
-CPU Utilization         12.67      10.52
-Number IPI's/sec        12522      2256
-Packets sent            68529174   68510125
-Packets recvd           17813593   18592262
-Packets dropped         0          0
-Segments retransmitted  376421     355243
-SoftIRQ events          121976064  12243852
-aRFS Skip               15890      1
-aRFS Update             268956     9833
-Wrong aRFS avoided      0          3642
-Total aRFS events       284846     13476
-
-------------------------------------------------
+| Metric                  | Org        | New        |
+|-------------------------|------------|------------|
+| Pkts on Queues 0-71     | 15,738,551 | 16,324,101 |
+| Pkts on Queues 72-143   | 48,295     | 5,289      |
+| CPU Utilization         | 12.67      | 10.52      |
+| Number IPI's/sec        | 12,522     | 2,256      |
+| Packets sent            | 68,529,174 | 68,510,125 |
+| Packets recvd           | 17,813,593 | 18,592,262 |
+| Packets dropped         | 0          | 0          |
+| Segments retransmitted  | 376,421    | 355,243    |
+| SoftIRQ events          | 121,976,064| 12,243,852 |
+| aRFS Skip               | 15,890     | 1          |
+| aRFS Update             | 268,956    | 9,833      |
+| Wrong aRFS avoided      | 0          | 3,642      |
+| Total aRFS events       | 284,846    | 13,476     |
 
 
 ## 📌 Notes
