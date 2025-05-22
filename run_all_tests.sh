@@ -37,10 +37,6 @@ RPS="512 1024 1024"
 # Set to 0 for original kernel, and non-zero for fixed kernel.
 # arfs_fix=0
 # echo $arfs_fix | sudo tee /proc/sys/net/arfs_fix
-kk_fix2=1
-echo $kk_fix2 | sudo tee /proc/sys/net/kk_fix2
-
-cur=$PWD
 
 for conn in $CONN
 do
@@ -51,13 +47,14 @@ do
 		$TEST_DIR/test_with_metrics.sh $ip $tm $dev $iters $conn
 
 		# Rename files with proper tags.
-		# TODO: Can be done in test_with_metrics.sh
+		# TODO: This can be done in test_with_metrics.sh
 		cd Results
 		for i in `seq 1 $iters`
 		do
-			mv run_iter_"$i".out conns_"$conn"_rps_"$rps"_iter_"$i"_fix_"$kk_fix2".out
+			mv run_iter_"$i".out \
+				conns_"$conn"_rps_"$rps"_iter_"$i".out
 		done
-		cd $cur
+		cd ..
 	done
 	echo "---------------------------------------------------------"
 	sleep 5

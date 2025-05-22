@@ -41,7 +41,7 @@ rcpus=`nproc`
 
 # Temporarily use 72 cores on client for testing aRFS. Comment out for
 # normal benchmarks.
-lcpus=72
+# lcpus=72
 
 function run_stream()
 {
