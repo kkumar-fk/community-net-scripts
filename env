@@ -1,0 +1,18 @@
+# include this file in all scripts that need a full path, or common
+# functions (like 'add' below), etc.
+
+# Set this path. All these scripts must be in this directory.
+TEST_DIR=/home/<user>/Network_Bench
+
+# Function to add int/floats, one line per number.
+function add
+{
+	if [ $# -eq 0 ]
+	then
+		inp=-
+	else
+		inp=$1
+	fi
+
+	paste -s -d+ $inp | bc
+}
