@@ -10,10 +10,6 @@ fi
 
 . ./env
 
-# If you want to get metrics from the remote system, enable "remote".
-# remote="10.65.36.80"
-# sleep 2
-
 server=$1
 procs=$2
 tm=$3
@@ -115,10 +111,11 @@ $TEST_DIR/system_util.sh $measure_tm a > /tmp/cpu.local 2>&1 &
 $TEST_DIR/pkts.sh $measure_tm $dev > /tmp/pkts.local 2>&1 &
 $TEST_DIR/ipi.sh $measure_tm > /tmp/ipi.local 2>&1 &
 
-# ssh $remote $TEST_DIR/system_util.sh \
+# Don't need metrics from remote at this time.
+# ssh $server $TEST_DIR/system_util.sh \
 #	$measure_tm a > /tmp/cpu.remote 2>&1 &
-# ssh $remote $TEST_DIR/pkts.sh $measure_tm > /tmp/pkts.remote 2>&1 &
-# ssh $remote $TEST_DIR/ipi.sh $measure_tm > /tmp/ipi.remote 2>&1 &
+# ssh $server $TEST_DIR/pkts.sh $measure_tm > /tmp/pkts.remote 2>&1 &
+# ssh $server $TEST_DIR/ipi.sh $measure_tm > /tmp/ipi.remote 2>&1 &
 
 wait
 
