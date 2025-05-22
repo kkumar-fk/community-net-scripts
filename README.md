@@ -38,6 +38,24 @@ Feel free to use, modify, or contribute — no obligations. I’ll keep improvin
 
 ---
 
+## 🚀 Notes on Script Customization
+
+While most of the 21 scripts included should work out of the box, a few may require minor modifications depending on your specific test setup. These scripts were tested on a 144-core system with processes pinned to CPUs 0–71. This setup allowed for measurement of packet processing on expected cores (0–71) versus unexpected cores (72–143).
+
+The following scripts may require changes:
+
+1. compare.sh – Assumes tests are run on CPUs 0–71. If your test setup differs, update the CPU ranges (0–71 and 72–143) accordingly. If you're not interested in distinguishing unexpected cores, you may simplify by analyzing all queues without filtering.
+
+2. drops.sh and pkts.sh – These rely on standardized metrics from modern ethtool output and typically should not require any changes.
+
+3. netperf_test.sh – If you do not want to pin test processes to a specific set of CPUs, uncomment the lcpus=72 line.
+
+4. parse_all_files.sh – Contains lines referencing CPU ranges (0–71 / 72–143). If you're running tests across all cores, you can remove or modify those filters.
+
+5. run_all_tests.sh – This is the main driver script. Set the appropriate values for CONN, RPS, and other parameters as required for your tests.
+
+---
+
 ## 🚀 How to Run the Test Suite
 
 1. The main entry point is `run_all_tests.sh`. You can modify this script as needed.
@@ -68,6 +86,7 @@ Feel free to use, modify, or contribute — no obligations. I’ll keep improvin
 ---
 
 ## 🚧 Sample Parsed Output
+
 ------------------------------------------------
 Metric                  Org        New
 ------------------------------------------------
@@ -84,6 +103,7 @@ aRFS Skip               15890      1
 aRFS Update             268956     9833
 Wrong aRFS avoided      0          3642
 Total aRFS events       284846     13476
+
 ------------------------------------------------
 
 
